@@ -14,95 +14,124 @@ import { useDispatch, useSelector } from "react-redux";
 import { Radio, RadioGroup } from "@mui/material";
 import { toast } from "react-toastify";
 
-const names = ["doctor", "admin"];
+
+
+
+const names = [
+    'Doctor',
+    'Admin',
+];
+
 
 export default function Signup() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const { success, error } = useSelector((state) => state.newUser)
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [personRole, setPersonRole] = useState("admin");
+    const navigate = useNavigate();
+    const dispatch = useDispatch()
 
-  const handleRoleChange = (e) => {
-    setPersonRole(e.target.value);
-  };
+    // const { isAuthenticated , error } = useSelector((state) => state.newUser)
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [personRole, setPersonRole] = useState('');
 
-    const myForm = new FormData();
-    myForm.set("email", email);
-    myForm.set("password", password);
-    myForm.set("role", personRole);
+
+    const handleRoleChange = (e) => {
+        setPersonRole(e.target.value);
+    };
+
+    const handleNameChange = (e) => {
+        setName(e.target.value);
+    };
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    const myForm = new FormData()
+    myForm.set("name" , name)
+    myForm.set("email" , email)
+    myForm.set("password" , password)
+    myForm.set("role" , personRole)
     dispatch(register(myForm))
     console.log("SignUp Form Submitted");
-    console.log({
-      email: email,
-      password: password,
-      personRole: personRole,
-    });
-  };
+    // console.log({
+    //     name: data.get(name),
+    //     email: data.get(email),
+    //     password: data.get(password),
+    // });
+};
 
-  const showToastErrorMessage = (err) => {
+
+const showToastErrorMessage = (err) => {
     toast.error(err, {
-      position: toast.POSITION.TOP_RIGHT,
+    position: toast.POSITION.TOP_RIGHT
     });
-  };
-  const showToastSuccessMessage = () => {
+};
+const showToastSuccessMessage = () => {
     toast.success(`Successfully SignUp!`, {
-      position: toast.POSITION.TOP_RIGHT,
+    position: toast.POSITION.TOP_RIGHT
     });
-  };
+};
 
-  useEffect(() => {
-    if (error) {
-      showToastErrorMessage(error)
-      dispatch(clearErrors())
-    }
-    if (success) {
-      showToastSuccessMessage()
-      navigate('/')
-    }
-    // },[dispatch , error ])
-  }, [dispatch, error, success])
+// useEffect(() => {
+    // if(error){
+    //     showToastErrorMessage(error)
+    //     dispatch(clearErrors())
+    // }
+    // if(isAuthenticated){
+    //     showToastSuccessMessage()
+    //     navigate('/')
+    // }
+// },[dispatch , error ])
+// },[dispatch , error , isAuthenticated])
 
-  return (
+
+return (
     <Container component="main" maxWidth="xs">
-      <Box
-        sx={{
-          marginTop: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+    <Box
+        sx={{  
+        marginTop: 8,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
         }}
-      >
-        <Typography component="h1" variant="h5" color="green">
-          Sign Up
+    >
+        <Typography component="h1" variant="h5" color='green'>
+        Sign Up
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-            required
+        <TextField
             margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Names"
+            name="name"
+            value={name}
+            onChange={handleNameChange}
+        />
+        <TextField
+            margin="normal"
+            required
             fullWidth
             id="email"
             label="Email Address"
             name="email"
             value={email}
             onChange={handleEmailChange}
-          />
-          <TextField
-            required
+        />
+        <TextField
             margin="normal"
+            required
             fullWidth
             name="password"
             label="Password"
@@ -110,45 +139,44 @@ export default function Signup() {
             id="password"
             value={password}
             onChange={handlePasswordChange}
-          />
-          {/* <RadioGroup
+        />
+        <RadioGroup
             row
             aria-label="role"
             name="role"
-            required
             value={personRole}
             onChange={handleRoleChange}
-          >
-            {names.map((name) => (
-              <FormControlLabel
-                key={name}
-                value={name}
-                control={<Radio />}
-                label={name}
-              />
-            ))}
-          </RadioGroup> */}
-          {/* <FormControlLabel
+            >
+                {names.map((name) => (
+                <FormControlLabel
+                    key={name}
+                    value={name}
+                    control={<Radio />}
+                    label={name}
+                />
+                ))}
+            </RadioGroup>
+        {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
         /> */}
-          <Button
+        <Button
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2, backgroundColor: "green" }}
-          >
+            sx={{ mt: 3, mb: 2 , backgroundColor:'green' }}
+        >
             Sign In
-          </Button>
-          <Grid container>
+        </Button>
+        <Grid container>
             <Grid item>
-              <Link href="/" variant="body2">
+            <Link href="/" variant="body2">
                 {"Already Have an account? Login"}
-              </Link>
+            </Link>
             </Grid>
-          </Grid>
+        </Grid>
         </Box>
-      </Box>
+    </Box>
     </Container>
-  );
+);
 }

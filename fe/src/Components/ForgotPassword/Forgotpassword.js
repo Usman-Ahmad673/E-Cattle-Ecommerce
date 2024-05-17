@@ -11,68 +11,73 @@ import Container from "@mui/material/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotPassword } from "../../actions/userActions";
 
+
+
 const ForgotPassword = () => {
-  const dispatch = useDispatch();
+  
+    const dispatch = useDispatch()
+    
+    const [email, setEmail] = useState('');
 
-  const [email, setEmail] = useState("");
+    const {message} = useSelector((state) => state.forgotPassword);
 
-  const { message } = useSelector((state) => state.forgotPassword);
+    console.log(message);
+    
 
-  console.log("a", message);
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleSubmit = (event) => {
+const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append("email", email);
+    formData.append('email', email);
     console.log(email);
-    dispatch(forgotPassword(formData));
-  };
+    dispatch(forgotPassword(formData))
+};
 
   return (
     <Container component="main" maxWidth="xs">
-      <Box
-        sx={{
-          marginTop: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+    <Box
+        sx={{  
+        marginTop: 8,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
         }}
-      >
-        <Typography component="h1" variant="h5" color="green">
-          Forgot Password
+    >
+        <Typography component="h1" variant="h5" color='green'>
+        Forgot Password
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-            label="Email"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            value={email}
-            onChange={handleEmailChange}
-            // Add an input name attribute for accessibility
-            name="email"
-          />
-
-          {/* <FormControlLabel
+        
+        <TextField
+        label="Email"
+        variant="outlined"
+        fullWidth
+        margin="normal"
+        value={email}
+        onChange={handleEmailChange}
+        // Add an input name attribute for accessibility
+        name="email"
+        />
+        
+        {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
         /> */}
-          <Button
+        <Button
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2, backgroundColor: "green" }}
-          >
+            sx={{ mt: 3, mb: 2 , backgroundColor:'green' }}
+        >
             Send Token
-          </Button>
+        </Button>
+
         </Box>
-      </Box>
+    </Box>
     </Container>
-  );
-};
+)};
 
 export default ForgotPassword;

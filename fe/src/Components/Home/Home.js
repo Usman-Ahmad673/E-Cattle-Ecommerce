@@ -11,24 +11,13 @@ import DoctorDisplay from '../Cattle/Doctor/DoctorDisplay';
 
 
 const Home = () => {
+    
 
-
-
+    
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
-    const isAuthenticated = localStorage.getItem('Token')
 
-    useEffect(() => {
-        // if(error){
-        //   console.log('error: ' , error);
-        //   dispatch(clearErrors)
-        // }
-        if (!isAuthenticated) {
-            navigate('/')
-        }
-        // dispatch(loadUser());
-    }, [isAuthenticated]);
 
 
 
@@ -39,13 +28,13 @@ const Home = () => {
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={8}>
                         <Paper elevation={3} sx={{ p: 2, mt: 2 }}>
-                            <Typography variant='h5' style={{ color: 'orange' }}>Cattle Data</Typography>
+                        <Typography variant='h5' style={{color:'orange'}}>Cattle Data</Typography>
                             <CattleDisplay />
                         </Paper>
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <Paper elevation={3} sx={{ p: 2, mt: 2 }}>
-                            <Typography variant='h5' style={{ color: 'orange' }}>Doctor Data</Typography>
+                        <Typography variant='h5' style={{color:'orange'}}>Doctor Data</Typography>
                             <DoctorDisplay />
                         </Paper>
                     </Grid>

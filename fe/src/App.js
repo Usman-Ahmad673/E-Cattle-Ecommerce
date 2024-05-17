@@ -10,15 +10,15 @@
 
 
 // const App = () => {
-
-
+  
+  
 
 //   return (
 //     <React.Fragment>
 //       <Box style={{ flexGrow: 1 }}>
 //         <CssBaseline />
 //           <Grid container-fluid>
-
+            
 //             <Sidebar />
 //             <Grid item xs={12} md={12}>z              
 //               <Routes>
@@ -28,7 +28,7 @@
 //                     <Route path="/signup" element={<Signup />} />
 //                     <Route path="/password/forgot" element={<Forgotpassword />} />
 //                     <Route path="/password/reset/:token" element={<Resetpassword />} />
-
+                
 //               </Routes>
 //             </Grid>
 //           </Grid>
@@ -65,31 +65,28 @@ import AdminDashboard from './Components/Admin/AdminDashboard';
 
 
 const App = () => {
-
+  
   const navigate = useNavigate()
   const dispatch = useDispatch();
-
+  
 
   // const { user , isAuthenticated , error , success } = useSelector((state) => state.loadUser);
-
 
   // console.log('App.js Page load User : ' , user);
   // console.log('App.js Page load User Authentication: ' , isAuthenticated);
   // console.log('App.js Page load User Error: ' , error);
   // console.log('App.js Page load User Success: ' , success);
-  const isAuthenticated = localStorage.getItem('Token')
 
-  useEffect(() => {
-    // if(error){
-    //   console.log('error: ' , error);
-    //   dispatch(clearErrors)
-    // }
-    if (!isAuthenticated) {
-      navigate('/')
-      dispatch(clearErrors)
-    }
-    // dispatch(loadUser());
-  }, [isAuthenticated]);
+  // useEffect(() => {
+  //   if(error){
+  //     console.log('error: ' , error);
+  //     dispatch(clearErrors)
+  //   }
+  //   if(!isAuthenticated){
+  //     navigate('/')
+  //   }
+  //     dispatch(loadUser());
+  // }, []);
 
 
   // const { isAuthenticated , error } = useSelector((state) => state.loadUser);
@@ -107,54 +104,54 @@ const App = () => {
   //   dispatch(loadUser());
   // }, [isAuthenticated, navigate]);
 
-
+  
 
   return (
     <React.Fragment>
       <Box style={{ flexGrow: 1 }}>
         <CssBaseline />
-        <Grid container-fluid="true">
-          {/* {isAuthenticated ? <Sidebar /> : ''} */}
-
-          <Sidebar />
-          <Grid item xs={12} md={12}>
-            <Routes>
+          <Grid container-fluid="true">
+            {/* {isAuthenticated ? <Sidebar /> : ''} */}
+            
+            <Sidebar />
+            <Grid item xs={12} md={12}>           
+              <Routes>
 
               {/* {isAuthenticated ? 
                 <React.Fragment> */}
 
-              {/* Admin Routes */}
-              <Route path="/admin-Dashboard" element={<AdminDashboard />} />
+                {/* Admin Routes */}
+                    <Route path="/admin-Dashboard" element={<AdminDashboard />} /> 
 
+                
+                {/* Cattle Routes */}
+                    <Route path="/cattle/new" element={<AddCattle />} /> 
+                    <Route path="/cattle/:id" element={<CattleDetails />} />
+                    
 
-              {/* Cattle Routes */}
-              <Route path="/cattle/new" element={<AddCattle />} />
-              <Route path="/cattle/:id" element={<CattleDetails />} />
+                {/* Cattle - Doctor Display */}
+                    <Route path="/home" element={<Home />} />
+                    
 
-
-              {/* Cattle - Doctor Display */}
-              <Route path="/home" element={<Home />} />
-
-
-              {/* Doctor Routes */}
-              <Route path="/doctor/new" element={<AddDoctor />} />
-              <Route path="/doctor/:id" element={<DoctorDetails />} />
-              <Route path="/doctor-Dashboard" element={<DoctorDashboard />} />
-              <Route path="/" element={<Login />} />
-              {/* </React.Fragment>
+                {/* Doctor Routes */}
+                    <Route path="/doctor/new" element={<AddDoctor />} />
+                    <Route path="/doctor/:id" element={<DoctorDetails />} />
+                    <Route path="/doctor-Dashboard" element={<DoctorDashboard />} />
+                    <Route path="/" element={<Login />} />
+                {/* </React.Fragment>
               :
                     <Route path="/" element={<Login />} />
               } */}
+                    
 
-
-              {/* Login - SignUp - Reset Password */}
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/password/forgot" element={<Forgotpassword />} />
-              <Route path="/password/reset/:token" element={<Resetpassword />} />
-
-            </Routes>
+                {/* Login - SignUp - Reset Password */}
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/password/forgot" element={<Forgotpassword />} />
+                    <Route path="/password/reset/:token" element={<Resetpassword />} />
+                
+              </Routes>
+            </Grid>
           </Grid>
-        </Grid>
       </Box>
     </React.Fragment>
   );

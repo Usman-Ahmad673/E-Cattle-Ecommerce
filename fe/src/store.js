@@ -1,41 +1,18 @@
-import {
-  legacy_createStore as createStore,
-  combineReducers,
-  applyMiddleware,
-} from "redux";
+import { legacy_createStore as createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import {
-  profileReducer,
-  userReducer,
-  forgotPasswordReducer,
-  allUsersReducer,
-  userDetailsReducer,
-  userLoginReducer,
-  userLogoutReducer,
-  loadUserReducer,
-} from "./reducers/userReducer";
-import {
-  allCattlesReducer,
-  cattleDetailsReducer,
-  createCattleReducer,
-  delCattleReducer,
-} from "./reducers/cattleReducer";
-import {
-  allDoctorsReducer,
-  assignCattleToDoctor,
-  createDoctorReducer,
-  delDoctorReducer,
-  doctorDetailsReducer,
-} from "./reducers/doctorReducer";
+import { profileReducer, userReducer , forgotPasswordReducer, allUsersReducer, userDetailsReducer, userLoginReducer, userLogoutReducer, loadUserReducer, userRegisterReducer } from "./reducers/userReducer";
+import { allCattlesReducer, cattleDetailsReducer, createCattleReducer, delCattleReducer } from "./reducers/cattleReducer";
+import { allDoctorsReducer, assignCattleToDoctor, createDoctorReducer, delDoctorReducer, doctorDetailsReducer } from "./reducers/doctorReducer";
 import { newProductReducer } from "./reducers/productReducers";
 
+
 const reducer = combineReducers({
-  newUser: userReducer,
+  // newUser: userRegisterReducer,
   user: userReducer,
   // loadUser:loadUserReducer,
-  userLogout: userReducer,
+  // userLogout: userLogoutReducer,
   // userLogin: userLoginReducer,
   forgotPassword: forgotPasswordReducer,
   profile: profileReducer,
@@ -47,7 +24,7 @@ const reducer = combineReducers({
   cattleDetail: cattleDetailsReducer,
   delCattle: delCattleReducer,
   updCattle: delCattleReducer,
-
+  
   doctor: allDoctorsReducer,
   newDoctor: createDoctorReducer,
   doctorDetail: doctorDetailsReducer,
@@ -69,3 +46,4 @@ const store = createStore(
 store.subscribe(() => console.log(store.getState()));
 
 export default store;
+
