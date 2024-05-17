@@ -1,0 +1,35 @@
+@media (min-width: 990px) {
+    .navbar {
+        height: 10%;
+    }
+
+    /* .navbar-brand {
+        width: 25%;
+        height: 20%;
+    } */
+
+    .navbar-brand > img {
+        width: 10%;
+        height: 10%; 
+    }
+
+    .nav-link {
+      font-size: 18px; /* Increase font size of links on larger screens */
+      margin: 20px; /* Add some right margin to links on larger screens */
+    }
+    Form{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin: 0 auto;
+    }
+    .btn{
+        border-radius: 25%;
+        margin: 0 -0.07vmax;
+    }
+}
+@media (max-width: 1400px) {
+    .search{
+        width: 15vw;
+    }
+}
