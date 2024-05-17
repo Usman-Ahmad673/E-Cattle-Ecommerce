@@ -39,10 +39,13 @@ const UpdateProduct = () => {
     const [imagesPreview, setImagesPreview] = useState([]);
     
         const categories = [
-            "Butter",
-            "Oil",
-            "Medicines",
-            "Chains",
+        "Laptop",
+        "Footwear",
+        "Bottom",
+        "Tops",
+        "Attire",
+        "Camera",
+        "SmartPhones",
         ];
     
         const productId = params.id

@@ -25,23 +25,23 @@
     
     .productListTable div {
         font: 300 1vmax "Roboto";
-        color: rgba(0,0,0,0.7);
-        /* border: none !important;     */
+        color: rgba(0, 0, 0, 0.678);
+        border: none !important;
     }
     
     .productListTable a,
     .productListTable button {
-        color: rgb(110,220,10);
+        color: rgba(0, 0, 0, 0.527);
         transition: all 0.5s;
     }
     
-    /* .productListTable a:hover {
-        color: rgb(110,220,10);
-    } */
+    .productListTable a:hover {
+        color: tomato;
+    }
     
-    /* .productListTable button:hover {
-        color: rgb(110,220,10);
-    } */
+    .productListTable button:hover {
+        color: rgb(236, 30, 30);
+    }
     
     .MuiDataGrid-columnHeader div {
         color: rgb(255, 255, 255);

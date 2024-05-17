@@ -104,7 +104,7 @@
                 <p>
                     <b>Total:</b>
                 </p>
-                <span>RS{totalPrice}</span>
+                <span>₹{totalPrice}</span>
                 </div>
 
                 <button onClick={proceedToPayment}>Proceed To Payment</button>

@@ -109,8 +109,7 @@
     }
     
     .orderSummary > button {
-        background-color: rgb(2,0,36);
-        background: 'linear-gradient(354deg, rgba(2,0,36,0.7399334733893557) 0%, rgba(83,205,38,1) 55%, rgba(255,255,255,1) 100%)';
+        background-color: tomato;
         color: white;
         width: 100%;
         padding: 1vmax;

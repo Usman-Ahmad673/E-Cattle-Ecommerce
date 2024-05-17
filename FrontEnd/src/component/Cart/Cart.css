@@ -10,14 +10,13 @@
 }
 .emptyCart > svg {
     font-size: 5vmax;
-    color: rgb(110,220,10);
+    color: tomato;
 }
 .emptyCart > p {
     font-size: 2vmax;
 }
 .emptyCart > a {
-    background-color: rgb(110,220,10);
-    background: 'linear-gradient(354deg, rgba(2,0,36,0.7399334733893557) 0%, rgba(83,205,38,1) 55%, rgba(255,255,255,1) 100%)';
+    background-color: rgb(51, 51, 51);
     color: white;
     border: none;
     padding: 1vmax 3vmax;
@@ -31,8 +30,7 @@
 }
 
 .cartHeader {
-    background-color: rgb(2,0,36);
-    background: 'linear-gradient(354deg, rgba(2,0,36,0.7399334733893557) 0%, rgba(83,205,38,1) 55%, rgba(255,255,255,1) 100%)';
+    background-color: tomato;
     width: 90%;
     box-sizing: border-box;
     margin: auto;
@@ -63,14 +61,14 @@
 
 .cartInput > button {
     border: none;
-    background-color: rgb(110,220,10);
+    background-color: rgba(0, 0, 0, 0.616);
     padding: 0.5vmax;
     cursor: pointer;
     color: white;
     transition: all 0.5s;
 }
 .cartInput > button:hover {
-    background-color: rgb(50,200,0);
+    background-color: rgba(0, 0, 0, 0.767);
 }
 
 .cartInput > input {
@@ -100,7 +98,7 @@
 }
 
 .cartGrossProfitBox {
-    border-top: 3px solid rgb(2,0,36);
+    border-top: 3px solid tomato;
     margin: 1vmax 4vmax;
     box-sizing: border-box;
     padding: 2vmax 0;
@@ -114,8 +112,7 @@
     justify-content: flex-end;
 }
 .checkOutBtn > button {
-    background-color: rgb(110,220,70);
-    background: 'linear-gradient(354deg, rgba(2,0,36,0.7399334733893557) 0%, rgba(83,205,38,1) 55%, rgba(255,255,255,1) 100%)';
+    background-color: tomato;
     color: white;
     border: none;
     padding: 0.8vmax 4vmax;

@@ -13,16 +13,49 @@ import MetaData from "../layout/MetaData";
 
 
 
+const categories = [
+    // "All",
+    "Laptop",
+    "Footwear",
+    "Bottom",
+    "Tops",
+    "Attire",
+    "Camera",
+    "SmartPhone",
+]
+
 
 
 const Products = () => {
     // console.log(categories);
     const dispatch = useDispatch()
 
- 
+    const [currentPage, setCurrentPage] = useState(1)
+    
+    const [ratings, setRatings] = useState(0)
+    
+    const [category, setCategory] = useState("")
+    
+    const [price, setPrice] = useState([0 , 32000])
+    
     const {products , loading ,error , productCount , resultPerPage , filteredProductsCount} = useSelector((state) => state.products)
+    // const {loading,error,products} = useSelector((state)=>state.products)
+    // const indexOfLastData = currentPage * resultPerPage;
+    // const indexOfFirstData = indexOfLastData - resultPerPage;
+    // const currentProducts = products.slice(indexOfFirstData, indexOfLastData);
+    // console.log(productCount);
+    // console.log(currentProducts);
+    const {keyword} = useParams()
 
- 
+    const setCurrentPageNo = (e) => {
+        setCurrentPage(e)
+    }
+    const priceHandler = (e , newPrice) => {
+        e.preventDefault()
+        setPrice(newPrice)
+    }
+
+
     // const alert = useAlert()
 
     // console.log(keyword);
@@ -32,8 +65,12 @@ const Products = () => {
             dispatch(clearErrors());
         }
     
-    }, [dispatch , error]);
+        dispatch(getProduct(keyword, currentPage, price, category, ratings));
+    }, [dispatch, keyword, currentPage, price, category, ratings, error]);
     
+    let count = filteredProductsCount
+    console.log(`count IS : ${count}`);
+    console.log(`resultperpage IS : ${resultPerPage}`);
 
 
     return (
@@ -48,7 +85,7 @@ const Products = () => {
                     ))}
                 </div>
 
-                {/* <div className="filterBox">
+                <div className="filterBox">
                             <Typography>Price</Typography>
                             <Slider 
                                 value={price}
@@ -69,7 +106,7 @@ const Products = () => {
                                 ))}
                             </ul>
                             <fieldset>
-                            <Typography component="legend">Rating Above</Typography>
+                            {/* <Typography component="legend">Rating Above</Typography>
                                     <Slider 
                                         value={ratings}
                                         onChange={(e , newRatings) => {
@@ -79,13 +116,30 @@ const Products = () => {
                                         min={0}
                                         max={5}
                                         valueLabelDisplay="auto"    
-                                    />
+                                    /> */}
                             </fieldset>
-                </div> */}
+                </div>
 
 
+                {resultPerPage > 0 && (
+                    <div className="paginationBox">
+                    <Pagination
+                        activePage={currentPage}
+                        itemsCountPerPage={resultPerPage}
+                        totalItemsCount={productCount}
+                        onChange={setCurrentPageNo}
+                        nextPageText="Next"
+                        prevPageText="Prev"
+                        firstPageText="1st"
+                        lastPageText="Last"
+                        itemClass="page-item"
+                        linkClass="page-link"
+                        activeClass="pageItemActive"
+                        activeLinkClass="pageLinkActive"
+                />
+                </div>
+                )}
             </Fragment>)}
-                
         </Fragment>
     )
     }

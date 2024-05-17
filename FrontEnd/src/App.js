@@ -96,7 +96,7 @@ function App() {
               {/* <Route exact path="/password/update" element={<UpdatePassword />} /> */}
               {/* <Route exact path="/password/forgot" element={<ForgotPassword />} /> */}
               {/* <Route exact path="/password/forgot/reset/:token" element={<ResetForgotPassword />} /> */}
-              <Route exact path="/login" element={<LoginSignUp />} />
+              {/* <Route exact path="/login" element={<LoginSignUp />} /> */}
               <Route exact path="/cart" element={<Cart />} />
               {/* <ProtectedRoute exact path="/shipping" component={Profile} /> */}
               <Route exact path="/login/shipping" element={<Shipping />} />

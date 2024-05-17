@@ -113,7 +113,7 @@ import { NEW_REVIEW_RESET } from "../../constants/productConstants";
             
                         <img
                         className="CarouselImage"
-                        src={product.images && product.images.url ? product.images.url : product.images}
+                        src={product.images}
                         alt={`Slide`}
                         />
             

@@ -1,6 +1,5 @@
     .banner{
-        background-color: rgb(110,220,10);
-        background: 'linear-gradient(354deg, rgba(2,0,36,0.7399334733893557) 0%, rgba(83,205,38,1) 55%, rgba(255,255,255,1) 100%)';
+        background-color: rgb(158, 175, 125);
         height: 100vmin;
         display: flex;
         flex-direction: column;
@@ -39,7 +38,7 @@
     .banner > a > button:hover {
         border-radius: 100px;
         box-shadow: 10px 10px 50px rgb(255, 255, 255);
-        background-color: rgb(110,220,10);
+        background-color: black;
         color: white;
     }
 
